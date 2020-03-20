@@ -16,6 +16,8 @@ create table user(
 );
 
 insert into user(name,lastname,email,password,is_active,is_admin,created_at) value ("Administrador", "","admin","90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad",1,1,NOW());
+insert into user(name,lastname,email,password,is_active,is_admin,created_at) value ("Administrador", "","emercado","90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad",1,1,NOW());
+insert into user(name,lastname,email,password,is_active,is_admin,created_at) value ("Administrador", "Roberto","rmancilla","90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad",1,1,NOW());
 
 create table category(
 	id int not null auto_increment primary key,
@@ -65,7 +67,6 @@ create table person(
 	created_at datetime
 );
 
-
 create table operation_type(
 	id int not null auto_increment primary key,
 	name varchar(50)
@@ -79,18 +80,15 @@ create table box(
 	created_at datetime
 );
 
-
 create table sell(
 	id int not null auto_increment primary key,
 	person_id int ,
 	user_id int ,
 	operation_type_id int default 2,
 	box_id int,
-
 	total double,
 	cash double,
 	discount double,
-
 	foreign key (box_id) references box(id),
 	foreign key (operation_type_id) references operation_type(id),
 	foreign key (user_id) references user(id),
@@ -109,7 +107,6 @@ create table operation(
 	foreign key (operation_type_id) references operation_type(id),
 	foreign key (sell_id) references sell(id)
 );
-
 /*
 configuration kind
 1.- Boolean
